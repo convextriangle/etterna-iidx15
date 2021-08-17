@@ -7,22 +7,6 @@ local t = Def.ActorFrame {
 			self:diffusealpha(0):addx(-15):addy(-15):linear(0.5):addx(15):addy(15):diffusealpha(0.8)
 		end;
 	};
-	LoadActor("MUSIC_WAKU.png")..{
-		InitCommand=function(self)
-			self:x(326):y(SCREEN_CENTER_Y-19)
-		end;
-		OnCommand=function(self)
-			self:blend('BlendMode_Add'):diffusealpha(0.8)
-		end;
-	};
-	LoadActor("MUSIC_WAKU_BG.png")..{
-		InitCommand=function(self)
-			self:x(320):y(SCREEN_CENTER_Y)
-		end;
-		OnCommand=function(self)
-			self:blend('BlendMode_Add'):texcoordvelocity(-.1,0):diffusealpha(0.8):x(200):y(213):cropleft(.235):cropright(.25)
-		end;
-	};
 	LoadActor("UP_PARTS.png")..{
 		InitCommand=function(self)
 			self:x(299):y(SCREEN_CENTER_Y-114)
