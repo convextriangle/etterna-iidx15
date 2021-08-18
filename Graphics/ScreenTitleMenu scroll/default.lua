@@ -1,3 +1,5 @@
+-- Controls the title menu choices
+
 local gc = Var("GameCommand");
 return Def.ActorFrame {
 	Def.BitmapText { File = "choices.ini" }..{

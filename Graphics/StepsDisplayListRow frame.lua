@@ -16,24 +16,20 @@ local DifficultyToState = {
 	Difficulty_Edit = 5,
 }
 
+local function highlight(self)
+	if self:IsVisible() then
+		self:queuecommand("Highlight")
+	end
+end
+
 local t = Def.ActorFrame{
--- Player1
+	InitCommand=function(self)
+		self:SetUpdateFunction(highlight)
+	end
 	LoadActor(THEME:GetPathG("ScreenSelectMusic", "StepsDisplayList/_1"))..{
 		Name="FrameP1";
 		InitCommand=function(self)
-			self:player(PLAYER_1):animate(false)
-		end;
-		SetCommand=function(self,param)
-			local curdiff = param.CustomDifficulty;
-			local state = CustomDifficultyToState[curdiff] or CustomDifficultyToState["Edit"];
-			self:setstate(state);
-		end;
-	};
--- Player2
-	LoadActor(THEME:GetPathG("ScreenSelectMusic", "StepsDisplayList/_1"))..{
-		Name="FrameP2";
-		InitCommand=function(self)
-			self:player(PLAYER_2):animate(false)
+			self:animate(false)
 		end;
 		SetCommand=function(self,param)
 			local curdiff = param.CustomDifficulty;
