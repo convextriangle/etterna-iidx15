@@ -1,3 +1,6 @@
+-- The difficulty list cursor is the "DECIDE?" frame that 
+-- you use to select the difficulty
+
 local DifficultyToFrame = {
 	Difficulty_Beginner	 = 0,
 	Difficulty_Easy		 = 1,
