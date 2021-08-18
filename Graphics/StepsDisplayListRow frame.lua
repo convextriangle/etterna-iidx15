@@ -16,16 +16,7 @@ local DifficultyToState = {
 	Difficulty_Edit = 5,
 }
 
-local function highlight(self)
-	if self:IsVisible() then
-		self:queuecommand("Highlight")
-	end
-end
-
 local t = Def.ActorFrame{
-	InitCommand=function(self)
-		self:SetUpdateFunction(highlight)
-	end
 	LoadActor(THEME:GetPathG("ScreenSelectMusic", "StepsDisplayList/_1"))..{
 		Name="FrameP1";
 		InitCommand=function(self)

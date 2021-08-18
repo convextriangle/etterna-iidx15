@@ -1,4 +1,4 @@
-local t = LoadFallbackB();
+local t = Def.ActorFrame{};
 
 t[#t+1] = StandardDecorationFromFileOptional("BannerFrame","banner frame");
 t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
