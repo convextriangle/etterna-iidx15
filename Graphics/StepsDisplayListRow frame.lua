@@ -21,6 +21,7 @@ local t = Def.ActorFrame{
 		Name="FrameP1";
 		InitCommand=function(self)
 			self:animate(false)
+			self:addx(6):zoom(0.91)
 		end;
 		SetCommand=function(self,param)
 			local curdiff = param.CustomDifficulty;

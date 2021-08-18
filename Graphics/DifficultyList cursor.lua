@@ -7,10 +7,10 @@ local DifficultyToFrame = {
 	Difficulty_Edit		 = 5,
 };
 return Def.ActorFrame{
-	--OnlyP1--
 	LoadActor("_cursor 1x6.png")..{
 	InitCommand=function(self)
-		self:x(-65):y(-9):rotationz(90):animate(false):setstate(0)
+		self:rotationz(90):animate(false):setstate(0)
+		self:addx(-0.5):addy(-1):zoom(0.915)
 	end;
 	BeginCommand=function(self)
 		self:player(PLAYER_1)
