@@ -55,7 +55,7 @@ end
 
 t[#t+1] = Def.ActorFrame {
     InitCommand = function(self)
-        self:xy(SCREEN_CENTER_X, SCREEN_CENTER_Y)
+        self:xy(SCREEN_CENTER_X - 50, SCREEN_CENTER_Y + 100)
     end,
     OnCommand = function(self)
         SCREENMAN:GetTopScreen():AddInputCallback(searcher)

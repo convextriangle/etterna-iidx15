@@ -3,97 +3,55 @@ local t = Def.ActorFrame {}
 -- from bare-frames
 -- Controls the song info relevant children of the ScreenSelectMusic decorations actorframe
 
-local wheelX = 15
-local arbitraryWheelXThing = 17
-local space = 20
-local meter = {}
-meter[1] = 0
+local meter
 local steps
 local song
 
 -- functionally make skillset rating text to save space
 local function makeSSes()
     local ss = Def.ActorFrame {}
-    local function makeSS(i)
-        return LoadFont("artist 16px") .. {
+    ss[#ss+1] = LoadFont("artist 16px") .. {
             InitCommand = function(self)
-                self:y(10 * i)
-                self:zoom(.3)
+                self:zoom(0.6)
                 self:halign(0)
             end,
             SetStuffCommand = function(self)
-                if not steps or not meter[i] then
-                    self:settextf("%s:", ms.SkillSetsTranslated[i])
-                else
-                    self:settextf("%s: %5.2f", ms.SkillSetsTranslated[i], meter[i])
+                if not steps or not meter then
+                    self:settextf("Overall: ------")
+                else 
+                    self:settextf("Overall: %5.2f", meter)
                 end
             end
-        }
-    end
-    for i = 1, #ms.SkillSets do
-        ss[#ss+1] = makeSS(i)
-    end
-    return ss
-end
+    };
 
-local songinfoLine = 100
+    return ss;
+end
 
 t[#t+1] = Def.ActorFrame {
     InitCommand = function(self)
-        self:x(wheelX + arbitraryWheelXThing + space + capWideScale(get43size(365),365)-50)
-        self:y(20)
+        self:x(SCREEN_CENTER_X-280)
+        self:y(SCREEN_CENTER_Y+80)
     end,
     CurrentStepsP1ChangedMessageCommand = function(self)
         steps = GAMESTATE:GetCurrentSteps()
         song = GAMESTATE:GetCurrentSong()
         if steps then
-            meter = {}
-            for i = 1, #ms.SkillSets do
-                local m = steps:GetMSD(getCurRateValue(), i)
-                meter[i] = m
-            end
+            -- displaying only overall MSD
+            meter = steps:GetMSD(getCurRateValue(), 1);
         end
         self:playcommand("SetStuff")
     end,
 
-    LoadFont("artist 16px") .. {
-        InitCommand = function(self)
-            self:zoom(.5):halign(0)
-            self:settextf("Song Info")
-        end
-    },
     makeSSes() .. {
         InitCommand = function(self)
             self:y(10)
         end
     },
 
-    Def.BPMDisplay {
-		File = THEME:GetPathF("BPMDisplay", "bpm"),
-		Name = "BPMDisplay",
-		InitCommand = function(self)
-			self:xy(songinfoLine + 3, 20):halign(0):zoom(0.3)
-		end,
-        SetStuffCommand = function(self)
-            if song then
-				self:visible(true)
-				self:SetFromSong(song)
-			else
-				self:visible(false)
-			end
-		end
-    },
-    LoadFont("artist 16px") .. {
-        InitCommand = function(self)
-            self:xy(songinfoLine, 20):zoom(.3)
-            self:settext("BPM:"):halign(1)
-        end
-    },
-
 	LoadFont("artist 16px") .. {
         Name = "RateDisplay",
 		InitCommand = function(self)
-			self:xy(songinfoLine, 30):zoom(0.3)
+			self:xy(100, 20):zoom(0.3)
 		end,
 		CurrentStepsP1ChangedMessageCommand = function(self)
 			self:settext(getCurRateDisplayString())
@@ -103,8 +61,7 @@ t[#t+1] = Def.ActorFrame {
 			ChangeMusicRate(rate, params)
 			self:settext(getCurRateDisplayString())
 		end
-	}
-    
+	}   
 }
 
 return t

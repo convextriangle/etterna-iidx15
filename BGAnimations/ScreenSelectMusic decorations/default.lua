@@ -13,7 +13,6 @@ t[#t+1] = StandardDecorationFromFileOptional("SongData","SongData");
 
 t[#t+1] = LoadActor("song_search");
 t[#t+1] = LoadActor("song_info");
-t[#t+1] = LoadActor("profile");
 
 t[#t+1] = LoadActor(THEME:GetPathG("","_press 5x2.png"))..{
 	Frames = Sprite.LinearFrames(10,.3);
