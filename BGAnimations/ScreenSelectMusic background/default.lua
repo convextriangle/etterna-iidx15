@@ -25,7 +25,7 @@ t = Def.ActorFrame {
 				self:smooth(0.5)
 				self:diffusealpha(brightness)
 
-				GAMESTATE:GetCurrentSong():PlaySampleMusicExtended();
+				SCREENMAN:GetTopScreen():PlayCurrentSongSampleMusic(true, true)
 			else
 				self:visible(false)
 			end
