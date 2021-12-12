@@ -1,6 +1,4 @@
 local t = Def.ActorFrame {
-	LoadActor("_alloww1.lua")..{
-	};
 	-- [Layer1]
 	LoadActor("TITLE_BG1")..{
 		InitCommand=function(self)

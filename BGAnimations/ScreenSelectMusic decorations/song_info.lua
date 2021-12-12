@@ -27,6 +27,8 @@ local function makeSSes()
     return ss;
 end
 
+
+
 t[#t+1] = Def.ActorFrame {
     InitCommand = function(self)
         self:x(SCREEN_CENTER_X-280)

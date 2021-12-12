@@ -1,3 +1,5 @@
+
+
 local t = Def.ActorFrame{
 	Def.Quad{
 		InitCommand=function(self)

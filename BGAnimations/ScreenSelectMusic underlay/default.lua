@@ -141,18 +141,5 @@ local t = Def.ActorFrame{
 	},
 };
 
--- cd title (doesn't work atm)
---[[t[#t + 1] = Def.Sprite {
-	InitCommand=function(self)
-		self:x(SCREEN_CENTER_X+30):y(SCREEN_CENTER_Y-85):playcommand("Set")
-		self:horizalign(right):zoom(0.7)
-	end;
-	SetCommand=function(self)
-		local song = GAMESTATE:GetCurrentSong();
-		if song then
-			error("alio");
-		end
-	end
-};]]
 
 return t;
