@@ -1,4 +1,4 @@
-local t = Def.ActorFrame {}
+--[[local t = Def.ActorFrame {}
 
 for pn in ivalues(PlayerNumber) do
 t[#t+1] = Def.ActorFrame {
@@ -25,4 +25,4 @@ t[#t+1] = Def.ActorFrame {
 }
 end
 
-return t
+return t]]
