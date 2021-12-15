@@ -1,9 +1,14 @@
+local y_fudge = -30
+
 local t = Def.ActorFrame{
 	--P1 NUMBERS
+
+    -- shows Perfect, Great, Good, Almost (Bad), Boo (Miss) count
 	LoadFont("Evaluation Numbers")..{
 	InitCommand=function(self)
 		self:horizalign(right):vertalign(top):x(173):y(SCREEN_CENTER_Y+59)
 	end;
+
 	OnCommand=function(self,params)
 		local stats = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1)
 		local w2 = stats:GetTapNoteScores('TapNoteScore_W2');
@@ -17,6 +22,8 @@ local t = Def.ActorFrame{
 		self:settext(str)
 	end;
 	};
+
+    -- shows OK (held note) count
 	LoadFont("Evaluation Numbers")..{
 	InitCommand=function(self)
 		self:horizalign(right):vertalign(top):x(173):y(SCREEN_CENTER_Y+174)
@@ -29,6 +36,8 @@ local t = Def.ActorFrame{
 		self:settext(str)
 	end;
 	};
+
+    -- shows Max Combo and Marvelous count
 	LoadFont("Evaluation Numbers")..{
 	InitCommand=function(self)
 		self:horizalign(left):vertalign(top):x(122):y(SCREEN_CENTER_Y-12)
@@ -36,8 +45,7 @@ local t = Def.ActorFrame{
 	OnCommand=function(self,params)
 		local stats = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1)
 		local radar = GAMESTATE:GetCurrentSteps(PLAYER_1):GetRadarValues(PLAYER_1)
-			str = string.format("%6d\n%4d\n%4d",
-			stats:GetCurrentPossibleDancePoints(),
+			str = string.format("\n%4d\n%4d",
 			stats:MaxCombo(),
 			stats:GetTapNoteScores('TapNoteScore_W1')
 			)

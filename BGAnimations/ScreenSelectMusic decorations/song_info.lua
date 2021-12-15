@@ -27,9 +27,10 @@ local function makeSSes()
     return ss;
 end
 
+-- MSD display
 t[#t+1] = Def.ActorFrame {
     InitCommand = function(self)
-        self:x(SCREEN_CENTER_X-280)
+        self:x(SCREEN_CENTER_X-260)
         self:y(SCREEN_CENTER_Y+80)
     end,
     CurrentStepsChangedMessageCommand = function(self)
@@ -46,22 +47,25 @@ t[#t+1] = Def.ActorFrame {
         InitCommand = function(self)
             self:y(10)
         end
-    },
+    }
 
-	LoadFont("Common Normal") .. {
-        Name = "RateDisplay",
-        InitCommand = function(self)
-            self:xy(SCREEN_CENTER_X, 30):zoom(0.3)
-        end,
-        CurrentStepsChangedMessageCommand = function(self)
-            self:settext(getCurRateDisplayString())
-        end,
-        CodeMessageCommand = function(self, params)
-            local rate = getCurRateValue()
-            ChangeMusicRate(rate, params)
-            self:settext(getCurRateDisplayString())
-        end
-    }   
+}
+
+-- Rate text
+t[#t+1] = LoadFont("artist 16px") .. {
+	Name="RateDisplay",
+	InitCommand = function(self)
+		self:x(SCREEN_CENTER_X-230)
+        self:y(SCREEN_CENTER_Y+110)
+
+		self:zoom(0.45)
+		self:maxwidth(capWideScale(get43size(340),340)/0.45)
+        self:settext("1.0xMusic")
+	end,
+	SetCommand = function(self)
+		self:settext(getCurRateDisplayString())
+	end,
+	CurrentRateChangedMessageCommand = function(self) self:playcommand("Set") end
 }
 
 return t

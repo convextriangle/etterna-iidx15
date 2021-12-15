@@ -1,6 +1,6 @@
 local framePref = GetUserPref("IIDX15Frame");
 local t = Def.ActorFrame{
-	LoadActor(framePref)..{
+	--[[LoadActor(framePref)..{
 		InitCommand=function(self)
 			self:zoomx(SCREEN_WIDTH/640)
 		end;
@@ -11,7 +11,7 @@ local t = Def.ActorFrame{
 			self:zoomx(SCREEN_WIDTH/640)
 		end;
 		Condition=GAMESTATE:GetCurrentGame():GetName() ~= "beat";
-	};
+	};]]
 };
 
 return t;

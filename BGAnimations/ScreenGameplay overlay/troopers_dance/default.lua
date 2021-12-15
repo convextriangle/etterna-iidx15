@@ -23,28 +23,14 @@ local t = Def.ActorFrame{
 	end;
 	Condition=GAMESTATE:IsPlayerEnabled(PLAYER_1) and not GAMESTATE:IsPlayerEnabled(PLAYER_2)
 	};
-	--Only P2 (Regular)--
-	LoadActor("_ONLY P2.lua")..{
-	InitCommand=function(self)
-		self:x(0):y(0)
-	end;
-	Condition=GAMESTATE:IsPlayerEnabled(PLAYER_2) and not GAMESTATE:IsPlayerEnabled(PLAYER_1)
-	};
-	--Versus (Regular)--
-	LoadActor("_VERSUS.lua")..{
-	InitCommand=function(self)
-		self:x(0):y(0)
-	end;
-	Condition=GAMESTATE:GetCurrentStyle():GetName() == 'versus'
-	};
-	LoadActor("_BANNER.lua")..{
+	--[[LoadActor("_BANNER.lua")..{
 	InitCommand=function(self)
 		self:x(320):y(452)
 	end;
 	OnCommand=function(self)
 		self:addy(50):linear(.2):addy(-50):sleep(.1):linear(.05):addy(2):linear(.05):addy(-2)
 	end;
-	};
+	};]]
 	LoadActor("_LIFE_P1.lua")..{
 	InitCommand=function(self)
 		self:x(139):y(27)
@@ -77,7 +63,7 @@ local t = Def.ActorFrame{
 	end;
 	OnCommand=function(self) self:SetFromGameState() end;
 	};
-	LoadActor("HIBANA")..{
+	--[[LoadActor("HIBANA")..{
 	};
 	LoadActor(THEME:GetPathB("", "SONG_INFO/DIFFICULTY"))..{
 	InitCommand=function(self)
@@ -93,7 +79,7 @@ local t = Def.ActorFrame{
 	InitCommand=function(self)
 		self:y(-80)
 	end;
-	};
+	};]]
 	LoadActor("TIME_DISPLAY")..{
 	InitCommand=function(self)
 		self:x(320):y(18)

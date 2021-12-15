@@ -1,4 +1,6 @@
 --FullCombo base from moonlight by AJ
+-- if this would even be used imo a better fit would be
+-- smth like the highlight from WMIX-HD or just using _troopers_fullcombo -- 000fds
 
 local pn = ...;
 assert(pn);

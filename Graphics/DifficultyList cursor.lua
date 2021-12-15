@@ -32,10 +32,10 @@ return Def.ActorFrame{
 			self:visible(false)
 		end;
 	end;
-	CurrentStepsP1ChangedMessageCommand=function(self)
+	CurrentStepsChangedMessageCommand=function(self)
 		self:stoptweening():playcommand("Set")
 	end;
-	CurrentTrailP1ChangedMessageCommand=function(self)
+	CurrentTrailChangedMessageCommand=function(self)
 		self:stoptweening():playcommand("Set")
 	end;
 	CurrentSongChangedChangedMessageCommand=function(self)
