@@ -86,7 +86,7 @@ local t = Def.ActorFrame{
  	LoadFont("TextBanner text") .. {
 		Text="song";
 		InitCommand=function(self)
-			self:x(SCREEN_CENTER_X):y(SCREEN_BOTTOM-65):maxwidth(512):diffusealpha(0):sleep(.2):linear(.2):diffusealpha(1)
+			self:x(SCREEN_CENTER_X):y(SCREEN_BOTTOM-55):maxwidth(512):diffusealpha(0):sleep(.2):linear(.2):diffusealpha(1)
 		end;
 		OnCommand=function(self)
 			local song = GAMESTATE:GetCurrentSong()

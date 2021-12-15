@@ -9,7 +9,7 @@ local t = Def.ActorFrame{
 	};
 	LoadActor("BG_FRAME_DOWN")..{
 	InitCommand=function(self)
-		self:vertalign(bottom):x(320):y(SCREEN_BOTTOM)
+		self:vertalign(bottom):x(320):y(SCREEN_BOTTOM + 10)
 	end;
 	OnCommand=function(self)
 		self:addy(60):diffusealpha(0):linear(.25):addy(-60):diffusealpha(1)
