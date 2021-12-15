@@ -44,15 +44,6 @@ local t = Def.ActorFrame{
 		self:settext(str)
 	end;
 	};
-	LoadFont("Evaluation Numbers")..{
-	InitCommand=function(self)
-		self:horizalign(left):vertalign(top):x(122):y(SCREEN_CENTER_Y+196)
-	end;
-	OnCommand=function(self,params)
-		local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetScore()
-		self:settext(string.format("%6d",score))
-	end;
-	};
 };
 
 return t;

@@ -27,14 +27,12 @@ local function makeSSes()
     return ss;
 end
 
-
-
 t[#t+1] = Def.ActorFrame {
     InitCommand = function(self)
         self:x(SCREEN_CENTER_X-280)
         self:y(SCREEN_CENTER_Y+80)
     end,
-    CurrentStepsP1ChangedMessageCommand = function(self)
+    CurrentStepsChangedMessageCommand = function(self)
         steps = GAMESTATE:GetCurrentSteps()
         song = GAMESTATE:GetCurrentSong()
         if steps then
@@ -50,20 +48,20 @@ t[#t+1] = Def.ActorFrame {
         end
     },
 
-	LoadFont("artist 16px") .. {
+	LoadFont("Common Normal") .. {
         Name = "RateDisplay",
-		InitCommand = function(self)
-			self:xy(100, 20):zoom(0.3)
-		end,
-		CurrentStepsP1ChangedMessageCommand = function(self)
-			self:settext(getCurRateDisplayString())
-		end,
+        InitCommand = function(self)
+            self:xy(SCREEN_CENTER_X, 30):zoom(0.3)
+        end,
+        CurrentStepsChangedMessageCommand = function(self)
+            self:settext(getCurRateDisplayString())
+        end,
         CodeMessageCommand = function(self, params)
-			local rate = getCurRateValue()
-			ChangeMusicRate(rate, params)
-			self:settext(getCurRateDisplayString())
-		end
-	}   
+            local rate = getCurRateValue()
+            ChangeMusicRate(rate, params)
+            self:settext(getCurRateDisplayString())
+        end
+    }   
 }
 
 return t

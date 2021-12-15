@@ -13,6 +13,7 @@ t[#t+1] = StandardDecorationFromFileOptional("SongData","SongData");
 
 t[#t+1] = LoadActor("song_search");
 t[#t+1] = LoadActor("song_info");
+--t[#t+1] = LoadActor("profile");
 
 for pn in ivalues(PlayerNumber) do
 	local MetricsName = "DifficultyIcon"..PlayerNumberToString(pn);

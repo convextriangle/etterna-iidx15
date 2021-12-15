@@ -6,7 +6,7 @@ local t = Def.ActorFrame{
 		OffCommand=function(self)
 			self:stop()
 		end;
-		Condition=STATSMAN:GetBestGrade() >= 6;
+		Condition=STATSMAN:GetBestGrade() >= 15; -- grade D or lower
 	};
 	LoadActor(THEME:GetPathS("","WIN"))..{
 		OnCommand=function(self)
@@ -15,60 +15,74 @@ local t = Def.ActorFrame{
 		OffCommand=function(self)
 			self:stop()
 		end;
-		Condition=STATSMAN:GetBestGrade() < 6;
+		Condition=STATSMAN:GetBestGrade() < 15; -- grade C or higher
 	};
+
 	-- A --
 	LoadActor("A")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
-	Condition=STATSMAN:GetBestGrade() == 3;
+    -- A and midgrades
+	Condition=STATSMAN:GetBestGrade() >= 10 and STATSMAN:GetBestGrade() <= 12;
 	};
+
 	-- AA --
 	LoadActor("AA")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
-	Condition=STATSMAN:GetBestGrade() == 2;
+     -- AA and midgrades
+	Condition=STATSMAN:GetBestGrade() >= 7 and STATSMAN:GetBestGrade() <= 9;
 	};
+
 	-- AAA --
 	LoadActor("AAA")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
-	Condition=STATSMAN:GetBestGrade() == 1 or STATSMAN:GetBestGrade() == 0;
+    --- AAA, AAAA, AAAAA and midgrades
+	Condition=STATSMAN:GetBestGrade() <= 6;
 	};
-	-- _CLEAR -- (B and C)
+
+	-- _CLEAR --
 	LoadActor("_CLEAR")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
-	Condition=STATSMAN:GetBestGrade() == 4 or STATSMAN:GetBestGrade() == 5;
+    -- grade B or C
+	Condition=STATSMAN:GetBestGrade() == 13 or STATSMAN:GetBestGrade() == 14;
 	};
-	-- _FAILED -- (D and E)
+
+	-- _FAILED --
 	LoadActor("_FAILED")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
-	Condition=STATSMAN:GetBestGrade() >= 6;
+    -- grade D or lower
+	Condition=STATSMAN:GetBestGrade() >= 15;
 	};
+
 	-- HEADER --
 	LoadActor("HEADER")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)
 	end;
 	};
+
 	-- CLEAR_FRAME --
-	LoadActor("IIDX_CLEAR_FRAME")..{
+	--[[LoadActor("IIDX_CLEAR_FRAME")..{
 	InitCommand=function(self)
 		self:visible(GAMESTATE:GetCurrentGame():GetName() == "beat" or GAMESTATE:GetCurrentGame():GetName() == "pump"):zoomx(SCREEN_WIDTH/640)
 	end;
-	};
+	};]]
+
 	LoadActor("DDR_CLEAR_FRAME")..{
 	InitCommand=function(self)
-		self:visible(GAMESTATE:GetCurrentGame():GetName() == "dance" or GAMESTATE:GetCurrentGame():GetName() == "kb7"):zoomx(SCREEN_WIDTH/640)
+		self:zoomx(SCREEN_WIDTH/640)
 	end;
 	};
+
  	LoadFont("TextBanner text") .. {
 		Text="song";
 		InitCommand=function(self)

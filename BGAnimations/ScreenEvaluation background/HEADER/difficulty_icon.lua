@@ -30,27 +30,4 @@ return Def.ActorFrame{
 		end;
 	end;
 	};
-	LoadActor("Difficulty icons 1x6.png")..{
-	InitCommand=function(self)
-		self:x(486):y(207):animate(false):setstate(0):diffusealpha(0):cropbottom(1):sleep(0.2):linear(0.2):diffusealpha(1):cropbottom(0)
-	end;
-	Condition=GAMESTATE:IsPlayerEnabled(PLAYER_2);
-	BeginCommand=function(self)
-		self:player(PLAYER_2)
-	end;
-	OnCommand=function(self)
-		if GAMESTATE:GetCurrentSong() then
-			local StepsOrTrail;
-			StepsOrTrail = GAMESTATE:GetCurrentSteps(PLAYER_2);
-			if StepsOrTrail then
-				self:setstate(DifficultyToFrame[StepsOrTrail:GetDifficulty()]);
-				self:visible(true)
-			else
-				self:visible(false)
-			end;
-		else
-			self:visible(false)
-		end;
-	end;
-	};
 };
