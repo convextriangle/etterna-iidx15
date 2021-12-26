@@ -1,4 +1,4 @@
--- Manages song background and music changes
+-- Manages song background changes
 
 local brightness = 0.3
 t = Def.ActorFrame {
@@ -24,8 +24,6 @@ t = Def.ActorFrame {
 				self:sleep(0.25)
 				self:smooth(0.5)
 				self:diffusealpha(brightness)
-
-				SCREENMAN:GetTopScreen():PlayCurrentSongSampleMusic(true, true)
 			else
 				self:visible(false)
 			end

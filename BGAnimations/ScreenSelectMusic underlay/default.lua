@@ -1,3 +1,4 @@
+local screen
 
 -- Difficulty selection banner, song subtitle, title and artist
 local t = Def.ActorFrame{
@@ -89,8 +90,8 @@ local t = Def.ActorFrame{
 		end,
 		SetCommand=function(self)
 			local song = GAMESTATE:GetCurrentSong()
-			if not song
-				then self:visible(false)
+			if not song then
+                self:visible(false)
 				return
 			end
 			self:visible(true)

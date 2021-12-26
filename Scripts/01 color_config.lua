@@ -1,4 +1,4 @@
--- from spawncamping-wallhack
+-- from spawncamping-wallhack and Rebirth
 
 local defaultConfig = {
 
