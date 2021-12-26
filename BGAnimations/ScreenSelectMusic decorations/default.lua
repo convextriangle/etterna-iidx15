@@ -7,6 +7,7 @@ t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
 
 t[#t+1] = LoadActor("song_search");
 t[#t+1] = LoadActor("song_info");
+t[#t+1] = LoadActor("tabs");
 --t[#t+1] = LoadActor("profile");
 
 for pn in ivalues(PlayerNumber) do
