@@ -55,13 +55,15 @@ local t = Def.ActorFrame{
 		self:addy(-50):linear(.2):addy(50):linear(.05):addy(-2):linear(.05):addy(2)
 	end;
 	};
-	Def.SongBPMDisplay{
+	Def.SongBPMDisplay {
 	File=THEME:GetPathF("", "Gameplay BPM");
 	Name="BPMDisplay";
 	InitCommand=function(self)
 		self:x(320):y(94):diffusealpha(1)
 	end;
-	OnCommand=function(self) self:SetFromGameState() end;
+	OnCommand=function(self)
+        self:SetFromGameState()
+    end;
 	};
 	--[[LoadActor("HIBANA")..{
 	};

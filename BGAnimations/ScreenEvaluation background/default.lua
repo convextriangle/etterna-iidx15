@@ -70,13 +70,6 @@ local t = Def.ActorFrame{
 	end;
 	};
 
-	-- CLEAR_FRAME --
-	--[[LoadActor("IIDX_CLEAR_FRAME")..{
-	InitCommand=function(self)
-		self:visible(GAMESTATE:GetCurrentGame():GetName() == "beat" or GAMESTATE:GetCurrentGame():GetName() == "pump"):zoomx(SCREEN_WIDTH/640)
-	end;
-	};]]
-
 	LoadActor("DDR_CLEAR_FRAME")..{
 	InitCommand=function(self)
 		self:zoomx(SCREEN_WIDTH/640)

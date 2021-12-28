@@ -27,7 +27,7 @@ local t = Def.ActorFrame{
 	------------------------------------------------------------------------
 	LoadActor("1P_PIKAGRE")..{ --PERFECT--dance
 	InitCommand=function(self)
-		self:horizalign(left):x(25):y(SCREEN_CENTER_Y+70):visible(GAMESTATE:GetCurrentGame():GetName() == "beat")
+		self:horizalign(left):x(25):y(SCREEN_CENTER_Y+70)
 	end;
 	OnCommand=function(self)
 		self:diffusealpha(.9):addx(-320):sleep(.15):linear(0.2):addx(320)

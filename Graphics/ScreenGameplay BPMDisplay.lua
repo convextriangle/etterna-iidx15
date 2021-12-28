@@ -4,7 +4,9 @@ return Def.SongBPMDisplay {
 	InitCommand=function(self)
 		self:diffusealpha(1)
 	end;
-	SetCommand=function(self) self:SetFromGameState() end;
+	SetCommand=function(self)
+        self:SetFromGameState()
+    end;
 	CurrentSongChangedMessageCommand=function(self)
 		self:playcommand("Set")
 	end;

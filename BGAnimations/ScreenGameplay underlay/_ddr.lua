@@ -84,12 +84,10 @@ end;
 
 for pn in ivalues(GAMESTATE:GetHumanPlayers()) do
 	t[#t+1] = LoadActor("FullCombo", pn) .. {
-	--[[
-					OffCommand = function(self)
-						local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn);
-						self:diffuse(GetFullComboEffectColor(pss));
-					end;
-	--]]
+		OffCommand = function(self)
+			local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn);
+			self:diffuse(GetFullComboEffectColor(pss));
+		end;
 	};
 end;
 
